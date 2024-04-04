@@ -1,11 +1,38 @@
+from dotenv import load_dotenv
+import pygetwindow as gw
 import irc.client
 import irc.events
-import pyautogui
-import threading
 import os
-from dotenv import load_dotenv
+import pyautogui
+import subprocess
+import threading
+import sys
 
 load_dotenv()
+
+
+def focus_on_desmume():
+    if sys.platform == "darwin":  # macOS
+        try:
+            # Use AppleScript to bring DeSmuME to the front
+            script = """/usr/bin/osascript -e 'tell app "DeSmuME" to activate' """
+            subprocess.run(script, shell=True)
+        except Exception as e:
+            print(f"Error focusing on DeSmuME on macOS: {e}")
+    elif sys.platform == "win32":  # Windows
+        windows = gw.getWindowsWithTitle("DeSmuME")
+        if windows:
+            try:
+                windows[0].activate()
+            except Exception as e:
+                print(f"Error focusing on DeSmuME on Windows: {e}")
+        else:
+            print("DeSmuME window not found.")
+
+
+def execute_command(command_function):
+    focus_on_desmume()
+    command_function()
 
 
 def on_connected(connection, event):
@@ -64,21 +91,21 @@ def on_public_message(connection, event):
 
     # Execute commands
     if command == "up":
-        handle_up_command()
+        execute_command(handle_up_command)
     elif command == "down":
-        handle_down_command()
+        execute_command(handle_down_command)
     elif command == "left":
-        handle_left_command()
+        execute_command(handle_left_command)
     elif command == "right":
-        handle_right_command()
+        execute_command(handle_right_command)
     elif command == "a":
-        handle_a_command()
+        execute_command(handle_a_command)
     elif command == "b":
-        handle_b_command()
+        execute_command(handle_b_command)
     elif command == "y":
-        handle_y_command()
+        execute_command(handle_y_command)
     elif command == "x":
-        handle_x_command()
+        execute_command(handle_x_command)
 
 
 # Twitch Bot Configuration
