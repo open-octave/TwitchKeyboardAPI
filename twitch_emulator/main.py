@@ -2,6 +2,10 @@ import irc.client
 import irc.events
 import pyautogui
 import threading
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def on_connected(connection, event):
@@ -77,14 +81,9 @@ def on_public_message(connection, event):
         handle_x_command()
 
 
-"""
-Controls: up, down, left, right, a, b, y, x
-"""
-
-
 # Twitch Bot Configuration
-USERNAME = "PCDSandwichBot"  # Your Twitch username
-PASSWORD = "oauth:h22c4i285dmdszvbkxgvfivi5v3d7q"  # Your Twitch OAuth token
+USERNAME = os.getenv("TWITCH_USERNAME")
+PASSWORD = os.getenv("TWITCH_OAUTH_TOKEN")
 SERVER = "irc.chat.twitch.tv"
 PORT = 6667
 CHANNELS = ["#pcdsandwichman"]
