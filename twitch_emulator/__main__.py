@@ -89,6 +89,11 @@ def on_public_message(connection, event):
         pyautogui.press("c")
         print("input(handleXCommand): X command handled")
 
+    def handle_start_command():
+        print("\ninput(handleStartCommand): Start command received")
+        pyautogui.press("enter")
+        print("input(handleStartCommand): Start command handled")
+
     # Execute commands
     if command == "up":
         execute_command(handle_up_command)
@@ -106,6 +111,8 @@ def on_public_message(connection, event):
         execute_command(handle_y_command)
     elif command == "x":
         execute_command(handle_x_command)
+    elif command == "start":
+        execute_command(handle_start_command)
 
 
 # Twitch Bot Configuration
