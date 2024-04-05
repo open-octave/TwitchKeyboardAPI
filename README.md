@@ -1,6 +1,8 @@
 # Emulator API for Twitch (EAT)
 
-EAT is an API that will monitor incoming commands from a Twitch chat and will send them to a game emulator.
+EAT is an API that will monitor incoming commands from a Twitch chat and send them to a game emulator.
+
+<img src="./.github/images//example.png">
 
 ## Getting Started
 

@@ -2,7 +2,7 @@
 name = "twitch-emulator"
 version = "0.1.0"
 description = ""
-authors = ["Matthew Endicott <112583934+Matthew-Endicott-GR@users.noreply.github.com>"]
+authors = ["PCDSandwichMan <46288251+PCDSandwichMan@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
