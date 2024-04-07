@@ -1,12 +1,13 @@
-from dotenv import load_dotenv
-import pygetwindow as gw
+import os
+import subprocess
+import sys
+import threading
+
 import irc.client
 import irc.events
-import os
 import pyautogui
-import subprocess
-import threading
-import sys
+import pygetwindow as gw
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -21,6 +22,7 @@ def focus_on_desmume():
             print(f"Error focusing on DeSmuME on macOS: {e}")
     elif sys.platform == "win32":  # Windows
         windows = gw.getWindowsWithTitle("DeSmuME")
+
         if windows:
             try:
                 windows[0].activate()
@@ -120,7 +122,8 @@ USERNAME = os.getenv("TWITCH_USERNAME")
 PASSWORD = os.getenv("TWITCH_OAUTH_TOKEN")
 SERVER = "irc.chat.twitch.tv"
 PORT = 6667
-CHANNELS = ["#pcdsandwichman"]
+CHANNEL = os.getenv("TWITCH_CHANNEL")
+CHANNELS = [f"#{CHANNEL}"]
 
 # Creating IRC client and connecting
 reactor = irc.client.Reactor()
