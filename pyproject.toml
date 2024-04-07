@@ -5,12 +5,17 @@ description = ""
 authors = ["PCDSandwichMan <46288251+PCDSandwichMan@users.noreply.github.com>"]
 readme = "README.md"
 
+[tool.poetry.scripts]
+build = "twitch_emulator.pyinstaller:install"
+create_dmg = "
+
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "3.11.4"
 irc = "^20.4.0"
 pyautogui = "^0.9.54"
 pygetwindow = "^0.0.9"
 python-dotenv = "^1.0.1"
+pyinstaller = "^6.5.0"
 
 
 [build-system]
