@@ -1,3 +1,4 @@
+import logging
 import os
 import subprocess
 import sys
@@ -9,17 +10,22 @@ import pyautogui
 import pygetwindow as gw
 from dotenv import load_dotenv
 
+# Setup basic configuration for logging
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 # Attempt to load environment variables; exit if .env file is missing or malformed
 try:
     load_dotenv()
 except Exception as e:
-    print(f"Error loading .env file: {e}")
+    logging.error(f"Error loading .env file: {e}")
     sys.exit(1)
 
 # Ensure that the necessary environmental variables are present
 for var in ["TWITCH_USERNAME", "TWITCH_OAUTH_TOKEN", "TWITCH_CHANNEL"]:
     if not os.getenv(var):
-        print(f"Error: {var} is not set in .env file.")
+        logging.error(f"Error: {var} is not set in .env file.")
         sys.exit(1)
 
 
@@ -29,16 +35,16 @@ def focus_on_desmume():
             script = """/usr/bin/osascript -e 'tell app "DeSmuME" to activate' """
             subprocess.run(script, shell=True, check=True)
         except subprocess.CalledProcessError as e:
-            print(f"Error focusing on DeSmuME on macOS: {e}")
+            logging.error(f"Error focusing on DeSmuME on macOS: {e}")
     elif sys.platform == "win32":
         try:
             windows = gw.getWindowsWithTitle("DeSmuME")
             if windows:
                 windows[0].activate()
             else:
-                print("DeSmuME window not found.")
+                logging.info("DeSmuME window not found.")
         except Exception as e:
-            print(f"Error focusing on DeSmuME on Windows: {e}")
+            logging.error(f"Error focusing on DeSmuME on Windows: {e}")
 
 
 def execute_command(command_function):
@@ -46,16 +52,16 @@ def execute_command(command_function):
         focus_on_desmume()
         command_function()
     except Exception as e:
-        print(f"Error executing command: {e}")
+        logging.error(f"Error executing command: {e}")
 
 
 def on_connected(connection, event):
     try:
         for channel in CHANNELS:
             connection.join(channel)
-        print(f"* Connected to Twitch")
+        logging.info(f"* Connected to Twitch")
     except Exception as e:
-        print(f"Error connecting to Twitch: {e}")
+        logging.error(f"Error connecting to Twitch: {e}")
 
 
 def on_public_message(connection, event):
@@ -68,75 +74,75 @@ def on_public_message(connection, event):
 
         def handle_up_command():
             try:
-                print("\ninput(handleUpCommand): Move up command received")
+                logging.info("Move up command received")
                 pyautogui.press("up")
-                print("input(handleUpCommand): Move up command handled")
+                logging.info("Move up command handled")
             except Exception as e:
-                print(f"Error handling up command: {e}")
+                logging.error(f"Error handling up command: {e}")
 
         def handle_down_command():
             try:
-                print("\ninput(handleDownCommand): Move down command received")
+                logging.info("Move down command received")
                 pyautogui.press("down")
-                print("input(handleDownCommand): Move down command handled")
+                logging.info("Move down command handled")
             except Exception as e:
-                print(f"Error handling down command: {e}")
+                logging.error(f"Error handling down command: {e}")
 
         def handle_left_command():
             try:
-                print("\ninput(handleLeftCommand): Move left command received")
+                logging.info("Move left command received")
                 pyautogui.press("left")
-                print("input(handleLeftCommand): Move left command handled")
+                logging.info("Move left command handled")
             except Exception as e:
-                print(f"Error handling left command: {e}")
+                logging.error(f"Error handling left command: {e}")
 
         def handle_right_command():
             try:
-                print("\ninput(handleRightCommand): Move right command received")
+                logging.info("Move right command received")
                 pyautogui.press("right")
-                print("input(handleRightCommand): Move right command handled")
+                logging.info("Move right command handled")
             except Exception as e:
-                print(f"Error handling right command: {e}")
+                logging.error(f"Error handling right command: {e}")
 
         def handle_a_command():
             try:
-                print("\ninput(handleACommand): A command received")
+                logging.info("A command received")
                 pyautogui.press("x")
-                print("input(handleACommand): A command handled")
+                logging.info("A command handled")
             except Exception as e:
-                print(f"Error handling A command: {e}")
+                logging.error(f"Error handling A command: {e}")
 
         def handle_b_command():
             try:
-                print("\ninput(handleBCommand): B command received")
+                logging.info("B command received")
                 pyautogui.press("z")
-                print("input(handleBCommand): B command handled")
+                logging.info("B command handled")
             except Exception as e:
-                print(f"Error handling B command: {e}")
+                logging.error(f"Error handling B command: {e}")
 
         def handle_y_command():
             try:
-                print("\ninput(handleYCommand): Y command received")
+                logging.info("Y command received")
                 pyautogui.press("v")
-                print("input(handleYCommand): Y command handled")
+                logging.info("Y command handled")
             except Exception as e:
-                print(f"Error handling Y command: {e}")
+                logging.error(f"Error handling Y command: {e}")
 
         def handle_x_command():
             try:
-                print("\ninput(handleXCommand): X command received")
+                logging.info("X command received")
                 pyautogui.press("c")
-                print("input(handleXCommand): X command handled")
+                logging.info("X command handled")
             except Exception as e:
-                print(f"Error handling X command: {e}")
+                logging.error(f"Error handling X command: {e}")
 
         def handle_start_command():
             try:
-                print("\ninput(handleStartCommand): Start command received")
+                logging.info("Start command received")
                 pyautogui.press("enter")
-                print("input(handleStartCommand): Start command handled")
+                logging.info("Start command handled")
             except Exception as e:
-                print(f"Error handling Start command: {e}")
+                logging.error(f"Error handling Start command: {e}")
 
         commands = {
             "up": handle_up_command,
@@ -152,10 +158,10 @@ def on_public_message(connection, event):
 
         if command in commands:
             execute_command(commands[command])
-            print(f"command(on_public_message): {command} Command executed")
+            logging.info(f"Command executed: {command}")
 
     except Exception as e:
-        print(f"Error processing public message: {e}")
+        logging.error(f"Error processing public message: {e}")
 
 
 # Twitch Bot Configuration
@@ -182,4 +188,4 @@ if __name__ == "__main__":
         thread = threading.Thread(target=reactor.process_forever)
         thread.start()
     except Exception as e:
-        print(f"Failed to start IRC client: {e}")
+        logging.error(f"Failed to start IRC client: {e}")
