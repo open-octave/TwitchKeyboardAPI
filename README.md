@@ -14,7 +14,8 @@ EAT is an API that will monitor incoming commands from a Twitch chat and send th
 ### Step 1: Emulator Installation
 
 1. Download the DeSmuME emulator from the [official website](https://www.desmume.com/download.htm).
-2. Download the `.nds` ROM of the game you want to play. You can find a list of games [here](https://www.emulatorgames.net/roms/nintendo-ds/).
+2. Download the `.nds` ROM of the game you want to play. You can find a list of
+   games [here](https://www.emulatorgames.net/roms/nintendo-ds/).
 
 ### Step 2: API Configuration
 
@@ -23,6 +24,7 @@ EAT is an API that will monitor incoming commands from a Twitch chat and send th
 ```bash
 TWITCH_USERNAME="your_twitch_username"
 TWITCH_OAUTH_TOKEN="your_twitch_oauth_token"
+TWITCH_CHANNEL="your_twitch_channel"
 ```
 
 _**Note:** You can get your Twitch OAuth token [here](https://twitchapps.com/tmi/)._
@@ -60,7 +62,8 @@ poetry run python twitch_emulator
 start
 ```
 
-2. From here you should automatically start receiving commands from the Twitch chat to the emulator. The API will auto focus on to use the command whenever a command is received.
+2. From here you should automatically start receiving commands from the Twitch chat to the emulator. The API will auto
+   focus on to use the command whenever a command is received.
 
 ## License
 
