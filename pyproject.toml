@@ -7,7 +7,6 @@ readme = "README.md"
 
 [tool.poetry.scripts]
 build = "twitch_emulator.pyinstaller:install"
-create_dmg = "
 
 [tool.poetry.dependencies]
 python = "3.11.4"
