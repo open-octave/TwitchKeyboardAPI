@@ -31,6 +31,13 @@ class TwitchBot:
         except Exception as e:
             logging.error(f"Failed to start IRC client: {e}")
 
+    def stop(self):
+        try:
+            self.client.disconnect_all()
+            self.reactor.disconnect_all()
+        except Exception as e:
+            logging.error(f"Failed to stop IRC client: {e}")
+
     def on_connected(self, connection, event):
         try:
             for channel in self.channels:
