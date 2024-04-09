@@ -9,7 +9,7 @@ readme = "README.md"
 build = "twitch_emulator.pyinstaller:install"
 
 [tool.poetry.dependencies]
-python = "3.11.4"
+python = "3.11.9"
 irc = "^20.4.0"
 pyautogui = "^0.9.54"
 pygetwindow = "^0.0.9"
