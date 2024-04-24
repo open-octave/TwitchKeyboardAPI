@@ -2,34 +2,40 @@
 
 EAT is an API that will monitor incoming commands from a Twitch chat and send them to a game emulator.
 
-<img src="./.github/images//example.png">
+<img src="./.github/images/example.png">
 
 ## Getting Started
 
 ### Prerequisites
 
-- Python 3.6 or higher
+- Python 3.11.9
 - Poetry
 
 ### Step 1: Emulator Installation
 
-1. Download the DeSmuME emulator from the [official website](https://www.desmume.com/download.htm).
-2. Download the `.nds` ROM of the game you want to play. You can find a list of
-   games [here](https://www.emulatorgames.net/roms/nintendo-ds/).
+_**Note:** For the sake of this example, assume you are downloading a Nintendo DS game but the process is similar for other consoles._
 
-### Step 2: API Configuration
+1. Download the RetroArch game emulator from the [official website](https://www.retroarch.com/?page=platforms).
+2. Open the RetroArch emulator.
+3. Go to `Load Core`.
+   <div><img width="500" src="./.github/images/step-load-core.png"></div>
+4. Select `Download a Core`.
+   <div><img width="500" src="./.github/images/step-download-core.png"></div>
+5. Select the `Nintendo - Nintendo DS (melonDS)` core.
+   <div><img width="500" src="./.github/images/step-core-select.png"></div>
+6. Download the `.nds` ROM of the game you want to play. You can find a list of
+games. [here](https://www.emulatorgames.net/roms/nintendo-ds/).
+   <div><img width="500" src="./.github/images/step-download-rom.png"></div>
+7. Go to `Load Content`.
+   <div><img width="500" src="./.github/images/step-load-content.png"></div>
+8. Select `Start Directory`.
+   <div><img width="500" src="./.github/images/step-start-directory.png"></div>
+9. Find and select the folder where the `.nds` ROM is located.
+   <div><img width="500" src="./.github/images/step-select-the-rom.png"></div>
+10. You should now be able to play the game using the emulator.
+<div><img width="500" src="./.github/images/step-game-preview.png"></div>
 
-1. Create a `.env` file in the root of the project and add the following environment variables:
-
-```bash
-TWITCH_USERNAME="your_twitch_username"
-TWITCH_OAUTH_TOKEN="your_twitch_oauth_token"
-TWITCH_CHANNEL="your_twitch_channel"
-```
-
-_**Note:** You can get your Twitch OAuth token [here](https://twitchapps.com/tmi/)._
-
-### Step 3: API Initialization
+### Step 2: API Initialization
 
 1. Clone the repository
 
@@ -46,24 +52,17 @@ poetry install
 3. Run the API
 
 ```bash
-poetry run python twitch_emulator
+poetry run python ./twitch_emulator/__main__.py
 ```
 
-### Step 4: Emulator Initialization
+### Step 3: Using the API
 
-1. Open the DeSmuME emulator.
-2. Go to `File > Open ROM` and select the `.nds` ROM of the game you want to play.
+1. Go to the Twitch chat and type a command
+2. The API will receive the command and send it to the emulator
 
-### Step 5: Twitch Chat
-
-1. Open the Twitch chat and type the following command:
-
-```bash
-start
-```
-
-2. From here you should automatically start receiving commands from the Twitch chat to the emulator. The API will auto
-   focus on to use the command whenever a command is received.
+| On Start Example                                                                 | Command Example                                                                   |
+| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| <div><img width="500" src="./.github/images/step-example-pre-message.png"></div> | <div><img width="500" src="./.github/images/step-example-post-message.png"></div> |
 
 ## License
 
