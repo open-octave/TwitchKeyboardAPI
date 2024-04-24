@@ -15,6 +15,7 @@ pyautogui = "^0.9.54"
 pygetwindow = "^0.0.9"
 python-dotenv = "^1.0.1"
 pyinstaller = "^6.5.0"
+pydirectinput = "^1.0.4"
 
 
 [build-system]

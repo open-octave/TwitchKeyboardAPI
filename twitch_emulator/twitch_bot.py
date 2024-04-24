@@ -1,8 +1,7 @@
 import logging
-import threading
 
 import irc.bot
-import pyautogui
+import pydirectinput
 
 from twitch_emulator.window_manager import WindowManager
 
@@ -69,7 +68,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
     def handle_up_command(self):
         try:
             logging.info("Move up command received")
-            pyautogui.press("up")
+            pydirectinput.press("up")
             logging.info("Move up command handled")
         except Exception as e:
             logging.error(f"Error handling up command: {e}")
@@ -77,7 +76,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
     def handle_down_command(self):
         try:
             logging.info("Move down command received")
-            pyautogui.press("down")
+            pydirectinput.press("down")
             logging.info("Move down command handled")
         except Exception as e:
             logging.error(f"Error handling down command: {e}")
@@ -85,7 +84,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
     def handle_left_command(self):
         try:
             logging.info("Move left command received")
-            pyautogui.press("left")
+            pydirectinput.press("left")
             logging.info("Move left command handled")
         except Exception as e:
             logging.error(f"Error handling left command: {e}")
@@ -93,7 +92,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
     def handle_right_command(self):
         try:
             logging.info("Move right command received")
-            pyautogui.press("right")
+            pydirectinput.press("right")
             logging.info("Move right command handled")
         except Exception as e:
             logging.error(f"Error handling right command: {e}")
@@ -101,7 +100,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
     def handle_a_command(self):
         try:
             logging.info("A command received")
-            pyautogui.press("x")
+            pydirectinput.press("x")
             logging.info("A command handled")
         except Exception as e:
             logging.error(f"Error handling A command: {e}")
@@ -109,7 +108,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
     def handle_b_command(self):
         try:
             logging.info("B command received")
-            pyautogui.press("z")
+            pydirectinput.press("z")
             logging.info("B command handled")
         except Exception as e:
             logging.error(f"Error handling B command: {e}")
@@ -117,7 +116,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
     def handle_y_command(self):
         try:
             logging.info("Y command received")
-            pyautogui.press("v")
+            pydirectinput.press("v")
             logging.info("Y command handled")
         except Exception as e:
             logging.error(f"Error handling Y command: {e}")
@@ -125,7 +124,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
     def handle_x_command(self):
         try:
             logging.info("X command received")
-            pyautogui.press("c")
+            pydirectinput.press("c")
             logging.info("X command handled")
         except Exception as e:
             logging.error(f"Error handling X command: {e}")
