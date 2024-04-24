@@ -3,8 +3,6 @@ import logging
 import irc.bot
 import pydirectinput
 
-from twitch_emulator.window_manager import WindowManager
-
 
 class TwitchBot(irc.bot.SingleServerIRCBot):
     def __init__(
