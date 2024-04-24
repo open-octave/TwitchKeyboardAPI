@@ -1,4 +1,4 @@
-# Emulator API for Twitch (EAT)
+# Emulator API for Twitch (EAT) - For Windows
 
 EAT is an API that will monitor incoming commands from a Twitch chat and send them to a game emulator.
 
@@ -10,6 +10,7 @@ EAT is an API that will monitor incoming commands from a Twitch chat and send th
 
 - Python 3.11.9
 - Poetry
+- Windows 10 / Windows 11
 
 ### Step 1: Emulator Installation
 
