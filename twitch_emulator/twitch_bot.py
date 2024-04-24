@@ -3,6 +3,8 @@ import logging
 import irc.bot
 import pydirectinput
 
+from twitch_emulator.window_manager import WindowManager
+
 
 class TwitchBot(irc.bot.SingleServerIRCBot):
     def __init__(
@@ -12,6 +14,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
             self, [(server, port)], nickname, nickname
         )
         self.channel = "#" + channel
+        self.windowManagerClient = WindowManager()
 
     def on_welcome(self, connection, event):
         logging.info(f"Joining channel: {self.channel}")
@@ -52,9 +55,9 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
 
     def execute_command(self, command_function):
         try:
-            # logging.info("Focusing on window")
-            # self.windowManagerClient.focus_on_window()
-            # logging.info("Window focused")
+            logging.info("Focusing on window")
+            self.windowManagerClient.focus_on_retroarch()
+            logging.info("Window focused")
 
             logging.info(f"Executing command: {command_function.__name__}")
             command_function()

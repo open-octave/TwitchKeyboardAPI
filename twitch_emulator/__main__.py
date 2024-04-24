@@ -1,6 +1,7 @@
 import logging
 
 from twitch_emulator.twitch_bot import TwitchBot
+from twitch_emulator.window_manager import WindowManager
 
 
 logging.basicConfig(
@@ -8,7 +9,7 @@ logging.basicConfig(
 )
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     channel = input("Enter your channel name: ")
 
     twitch_bot = TwitchBot(channel)
