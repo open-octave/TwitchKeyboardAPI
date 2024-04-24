@@ -117,7 +117,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
     def handle_y_command(self):
         try:
             logging.info("Y command received")
-            pydirectinput.press("v")
+            pydirectinput.press("a")
             logging.info("Y command handled")
         except Exception as e:
             logging.error(f"Error handling Y command: {e}")
@@ -125,7 +125,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
     def handle_x_command(self):
         try:
             logging.info("X command received")
-            pydirectinput.press("c")
+            pydirectinput.press("s")
             logging.info("X command handled")
         except Exception as e:
             logging.error(f"Error handling X command: {e}")
