@@ -4,6 +4,18 @@ EAT is an API that will monitor incoming commands from a Twitch chat and send th
 
 <img src="./.github/images/example.png">
 
+## Table of Contents
+
+- [Emulator API for Twitch (EAT) - For Windows](#emulator-api-for-twitch-eat---for-windows)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Step 1: Emulator Installation](#step-1-emulator-installation)
+    - [Step 2: API Initialization](#step-2-api-initialization)
+    - [Step 3: Using the API](#step-3-using-the-api)
+  - [Commands](#commands)
+  - [License](#license)
+
 ## Getting Started
 
 ### Prerequisites
@@ -64,6 +76,21 @@ poetry run python ./twitch_emulator/__main__.py
 | On Start Example                                                                 | Command Example                                                                   |
 | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | <div><img width="500" src="./.github/images/step-example-pre-message.png"></div> | <div><img width="500" src="./.github/images/step-example-post-message.png"></div> |
+
+## Commands
+
+_**Note:** The command mapping is designed based on the default key bindings of the RetroArch emulator._
+
+| Command | Description                       |
+| ------- | --------------------------------- |
+| `up`    | Simulates a up arrow key press    |
+| `down`  | Simulates a down arrow key press  |
+| `left`  | Simulates a left arrow key press  |
+| `right` | Simulates a right arrow key press |
+| `a`     | Simulates an X key press          |
+| `b`     | Simulates a Z key press           |
+| `x`     | Simulates an S key press          |
+| `y`     | Simulates an A key press          |
 
 ## License
 
