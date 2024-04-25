@@ -9,6 +9,7 @@ EAT is an API that will monitor incoming commands from a Twitch chat and send th
 - [Emulator API for Twitch (EAT) - For Windows](#emulator-api-for-twitch-eat---for-windows)
   - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
+    - [**Optional** Automated Setup Script for Windows](#optional-automated-setup-script-for-windows)
     - [Prerequisites](#prerequisites)
     - [Step 1: Emulator Installation](#step-1-emulator-installation)
     - [Step 2: API Initialization](#step-2-api-initialization)
@@ -17,6 +18,17 @@ EAT is an API that will monitor incoming commands from a Twitch chat and send th
   - [License](#license)
 
 ## Getting Started
+
+### **Optional** Automated Setup Script for Windows
+
+If you already have a development environment set up, you can skip this step. But for those who don't, you can use the [`setup.ps1` script](./scripts/setup.ps1) to install the necessary dependencies. This script will install the following:
+
+- Pyenv - Python 3.11.9
+- Poetry
+- Git
+- GitHub CLI
+
+_**Note:** You wll run the script about 3 times total if you do not have any of the dependencies installed. This is because the terminal needs to be restarted after installing some of the dependencies._
 
 ### Prerequisites
 
@@ -31,22 +43,22 @@ _**Note:** For the sake of this example, assume you are downloading a Nintendo D
 1. Download the RetroArch game emulator from the [official website](https://www.retroarch.com/?page=platforms).
 2. Open the RetroArch emulator.
 3. Go to `Load Core`.
-   <div><img width="500" src="./.github/images/step-load-core.png"></div>
+   <div><img height=200" src="./.github/images/step-load-core.png"></div>
 4. Select `Download a Core`.
-   <div><img width="500" src="./.github/images/step-download-core.png"></div>
+   <div><img height=200" src="./.github/images/step-download-core.png"></div>
 5. Select the `Nintendo - Nintendo DS (melonDS)` core.
-   <div><img width="500" src="./.github/images/step-core-select.png"></div>
+   <div><img height=200" src="./.github/images/step-core-select.png"></div>
 6. Download the `.nds` ROM of the game you want to play. You can find a list of
-games. [here](https://www.emulatorgames.net/roms/nintendo-ds/).
-   <div><img width="500" src="./.github/images/step-download-rom.png"></div>
+games [here](https://www.emulatorgames.net/roms/nintendo-ds/).
+   <div><img height=200" src="./.github/images/step-download-rom.png"></div>
 7. Go to `Load Content`.
-   <div><img width="500" src="./.github/images/step-load-content.png"></div>
+   <div><img height=200" src="./.github/images/step-load-content.png"></div>
 8. Select `Start Directory`.
-   <div><img width="500" src="./.github/images/step-start-directory.png"></div>
+   <div><img height=200" src="./.github/images/step-start-directory.png"></div>
 9. Find and select the folder where the `.nds` ROM is located.
-   <div><img width="500" src="./.github/images/step-select-the-rom.png"></div>
+   <div><img height=200" src="./.github/images/step-select-the-rom.png"></div>
 10. You should now be able to play the game using the emulator.
-<div><img width="500" src="./.github/images/step-game-preview.png"></div>
+<div><img height=200" src="./.github/images/step-game-preview.png"></div>
 
 ### Step 2: API Initialization
 
