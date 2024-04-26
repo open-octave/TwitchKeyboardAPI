@@ -15,6 +15,8 @@ EAT is an API that will monitor incoming commands from a Twitch chat and send th
     - [Step 2: API Initialization](#step-2-api-initialization)
     - [Step 3: Using the API](#step-3-using-the-api)
   - [Commands](#commands)
+  - [FAQ](#faq)
+    - [How can I still use my computer while the API is running since the window focused on RetroArch for ever command?](#how-can-i-still-use-my-computer-while-the-api-is-running-since-the-window-focused-on-retroarch-for-ever-command)
   - [License](#license)
 
 ## Getting Started
@@ -103,6 +105,14 @@ _**Note:** The command mapping is designed based on the default key bindings of 
 | `b`     | Simulates a Z key press           |
 | `x`     | Simulates an S key press          |
 | `y`     | Simulates an A key press          |
+
+## FAQ
+
+### How can I still use my computer while the API is running since the window focused on RetroArch for ever command?
+
+You can run the API and RetroArch inside of VMWare or VirtualBox. I honestly recommend this method since it also gives the streamer an extra layer of security since the API does not have access to the files, folders, or applications on the streamer's computer. This should never be possible due to a few security measures in place but it is always better to be safe than sorry.
+
+[Windows Virtual Machines](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines)
 
 ## License
 
