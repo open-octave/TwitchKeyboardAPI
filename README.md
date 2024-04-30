@@ -86,8 +86,10 @@ poetry run python ./twitch_emulator/__main__.py
 
 ### Step 3: Using the API
 
-1. Go to the Twitch chat and type a command
-2. The API will receive the command and send it to the emulator
+1. Go to the Twitch chat.
+2. It's recommended that you use the mod commands `/uniquechatoff` and `/slowoff` in chat to allow viewers to send commands without being blocked by Twitch.
+3. Type one of the commands listed in the [Commands](#commands) section.
+4. The API will receive the command and send it to the emulator.
 
 | On Start Example                                                                 | Command Example                                                                   |
 | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
