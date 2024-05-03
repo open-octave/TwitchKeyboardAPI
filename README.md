@@ -1,4 +1,4 @@
-# Emulator API for Twitch (EAT) - For Windows
+# TwitchKeyboardAPI - For Windows
 
 EAT is an API that will monitor incoming commands from a Twitch chat and send them to a game emulator.
 
@@ -6,7 +6,7 @@ EAT is an API that will monitor incoming commands from a Twitch chat and send th
 
 ## Table of Contents
 
-- [Emulator API for Twitch (EAT) - For Windows](#emulator-api-for-twitch-eat---for-windows)
+- [TwitchKeyboardAPI - For Windows](#twitchkeyboardapi---for-windows)
   - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
     - [**Optional** Automated Setup Script for Windows](#optional-automated-setup-script-for-windows)
@@ -71,7 +71,7 @@ games [here](https://www.emulatorgames.net/roms/nintendo-ds/).
 1. Clone the repository
 
 ```bash
-git clone git@github.com:open-octave/emulator-api-for-twitch.git
+git clone git@github.com:open-octave/TwitchKeyboardAPI.git
 ```
 
 2. Install the dependencies
@@ -83,7 +83,7 @@ poetry install
 3. Run the API
 
 ```bash
-poetry run python ./twitch_emulator/__main__.py
+poetry run python ./twitch_keyboard_api/__main__.py
 ```
 
 ### Step 3: Using the API

@@ -1,8 +1,8 @@
 import logging
 import os
 
-from twitch_emulator.twitch_bot import TwitchBot
-from twitch_emulator.window_manager import WindowManager
+from twitch_keyboard_api.twitch_bot import TwitchBot
+from twitch_keyboard_api.window_manager import WindowManager
 from pyfiglet import Figlet
 from colorama import Fore, Style
 

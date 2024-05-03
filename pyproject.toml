@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "twitch-emulator"
+name = "TwitchKeyboardApi"
 version = "0.1.0"
 description = ""
 authors = ["PCDSandwichMan <46288251+PCDSandwichMan@users.noreply.github.com>"]
