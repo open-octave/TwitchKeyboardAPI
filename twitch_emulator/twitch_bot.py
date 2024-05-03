@@ -316,15 +316,17 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         """
         username = irc.strings.lower(event.source.nick)
 
-        tags = {kv["key"]: kv["value"] for kv in event.tags}
         user_role = None
 
-        # "moderator" if tags.get("mod") == "1" else "viewer"
+        if event.tags:
+            tags = {kv["key"]: kv["value"] for kv in event.tags}
 
-        if tags.get("mod") == "1":
-            user_role = "moderator"
-        elif "broadcaster" in tags.get("badges"):
-            user_role = "broadcaster"
+            if tags.get("mod") == "1":
+                user_role = "moderator"
+            elif "broadcaster" in tags.get("badges"):
+                user_role = "broadcaster"
+            else:
+                user_role = "viewer"
         else:
             user_role = "viewer"
 
