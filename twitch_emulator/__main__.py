@@ -24,8 +24,27 @@ def fix_pyinqurer_dependency():
     # Verify that .venv exists in the current directory
     if not os.path.exists(".venv"):
         logging.error(
-            "The .venv directory does not exist. Please ensure that your virtual environment is set up to install the dependencies in your current directory."
+            "The .venv directory does not locally exist. Please ensure that your virtual environment is set up to install the dependencies in your current directory."
         )
+
+        print("\n")
+        print("To resolve this issue you can try the following...")
+        print("\n")
+        print(
+            "Configure poetry to create virtual environments in the project directory:"
+        )
+        print("$ poetry config virtualenvs.in-project true")
+        print("\n")
+        print("Find the active virtual environment by running the following command:")
+        print("$ poetry env list")
+        print("\n")
+        print("Remove the virtual environment by running the following command:")
+        print("$ poetry env remove <ACTIVE_VIRTUAL_ENVIRONMENT_NAME>")
+        print("\n")
+        print("Reinitialize the virtual environment by running the following command:")
+        print("$ poetry install")
+        print("\n")
+
         exit(1)
 
     # Verify that the file exists
