@@ -318,20 +318,28 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
 
         user_role = None
 
+        print("==================")
+        print(event)
+        print("==================")
+        print(event.tags)
+
         if event.tags:
             tags = {kv["key"]: kv["value"] for kv in event.tags}
 
             if tags.get("mod") == "1":
                 user_role = "moderator"
-            elif "broadcaster" in tags.get("badges"):
+            elif tags.get("badges") and "broadcaster" in tags.get("badges"):
                 user_role = "broadcaster"
             else:
                 user_role = "viewer"
         else:
             user_role = "viewer"
 
+        print("==================")
         print(username)
+        print("==================")
         print(user_role)
+        print("==================")
 
         # try:
         #     logging.info(f"Mod kill API command received from: {username}")
