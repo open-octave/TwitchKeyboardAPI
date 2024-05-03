@@ -69,16 +69,16 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
             }
 
             if command in commands:
-                if self.currentlyHeldKey:
-                    self.handle_stop_command()
+                if self.currentlyHeldKey and command != "!stop":
+                    self.handle_stop_command(event)
 
-                self.execute_command(event)
+                self.execute_command(commands[command], event)
                 logging.info(f"Command executed: {command}")
 
         except Exception as e:
             logging.error(f"Error processing public message: {e}")
 
-    def execute_command(self, command_function, message):
+    def execute_command(self, command_function, event):
         """
         This function will focus on the retroarch window and execute the command function
         passed in as a parameter.
@@ -93,7 +93,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
             logging.info("Window focused")
 
             logging.info(f"Executing command: {command_function.__name__}")
-            command_function(message)
+            command_function(event)
             logging.info(f"Command executed: {command_function.__name__}")
 
         except Exception as e:
@@ -240,11 +240,11 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
 
         def timeout_release():
             logging.info(f"Timeout reached. Releasing key: {self.currentlyHeldKey}")
-            self.handle_stop_command()
+            self.handle_stop_command(event)
 
         try:
             if self.currentlyHeldKey:
-                self.handle_stop_command()
+                self.handle_stop_command(event)
 
             allowed_keys = ["up", "down", "left", "right"]
 
