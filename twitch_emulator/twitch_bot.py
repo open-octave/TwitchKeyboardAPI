@@ -64,9 +64,10 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
                 "start": self.handle_start_command,
                 "select": self.handle_select_command,
                 "!hold": self.handle_hold_command,
+                "!release": self.handle_stop_command,
                 "!stop": self.handle_stop_command,
-                "!fast-forward-toggle": self.handle_fast_forward_toggle_command,
-                "!fft": self.handle_fast_forward_toggle_command,
+                "!toggle-fast-forward": self.handle_fast_forward_toggle_command,
+                "!tff": self.handle_fast_forward_toggle_command,
                 "!mod-kill-api": self.handle_mod_kill_api_command,
             }
 

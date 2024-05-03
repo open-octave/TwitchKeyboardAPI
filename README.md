@@ -15,6 +15,8 @@ EAT is an API that will monitor incoming commands from a Twitch chat and send th
     - [Step 2: API Initialization](#step-2-api-initialization)
     - [Step 3: Using the API](#step-3-using-the-api)
   - [Commands](#commands)
+    - [General Commands](#general-commands)
+    - [Broadcaster And Mod Only Commands](#broadcaster-and-mod-only-commands)
   - [FAQ](#faq)
     - [How can I still use my computer while the API is running since the window focused on RetroArch for ever command?](#how-can-i-still-use-my-computer-while-the-api-is-running-since-the-window-focused-on-retroarch-for-ever-command)
   - [Development](#development)
@@ -99,16 +101,29 @@ poetry run python ./twitch_emulator/__main__.py
 
 _**Note:** The command mapping is designed based on the default key bindings of the RetroArch emulator._
 
-| Command | Description                       |
-| ------- | --------------------------------- |
-| `up`    | Simulates a up arrow key press    |
-| `down`  | Simulates a down arrow key press  |
-| `left`  | Simulates a left arrow key press  |
-| `right` | Simulates a right arrow key press |
-| `a`     | Simulates an X key press          |
-| `b`     | Simulates a Z key press           |
-| `x`     | Simulates an S key press          |
-| `y`     | Simulates an A key press          |
+### General Commands
+
+| Command                          | Description                                  |
+| -------------------------------- | -------------------------------------------- |
+| `up`                             | Simulates a up arrow key press               |
+| `down`                           | Simulates a down arrow key press             |
+| `left`                           | Simulates a left arrow key press             |
+| `right`                          | Simulates a right arrow key press            |
+| `a`                              | Simulates an X key press                     |
+| `b`                              | Simulates a Z key press                      |
+| `x`                              | Simulates an S key press                     |
+| `y`                              | Simulates an A key press                     |
+| `start`                          | Simulates an Enter key press                 |
+| `select`                         | Simulates a Shift key press                  |
+| `!hold <key>`                    | Holds the last key pressed                   |
+| `!release` or `!stop`            | Releases the being help                      |
+| `!toggle-fast-forward` or `!tff` | Toggles RetroArch's fast forward mode on/off |
+
+### Broadcaster And Mod Only Commands
+
+| Command         | Description                                   |
+| --------------- | --------------------------------------------- |
+| `!mod-kill-api` | Kills the API process in case of an emergency |
 
 ## FAQ
 
