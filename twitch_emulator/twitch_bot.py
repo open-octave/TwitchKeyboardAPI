@@ -63,6 +63,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
                 "x": self.handle_x_command,
                 "start": self.handle_start_command,
                 "select": self.handle_select_command,
+                "!move": self.handle_hold_command,
                 "!hold": self.handle_hold_command,
                 "!release": self.handle_stop_command,
                 "!stop": self.handle_stop_command,
@@ -72,7 +73,11 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
             }
 
             if command in commands:
-                if self.currentlyHeldKey and command != "!stop":
+                if (
+                    self.currentlyHeldKey
+                    and command != "!stop"
+                    and command != "!release"
+                ):
                     self.handle_stop_command(event)
 
                 self.execute_command(commands[command], event)

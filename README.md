@@ -103,21 +103,21 @@ _**Note:** The command mapping is designed based on the default key bindings of 
 
 ### General Commands
 
-| Command                          | Description                                  |
-| -------------------------------- | -------------------------------------------- |
-| `up`                             | Simulates a up arrow key press               |
-| `down`                           | Simulates a down arrow key press             |
-| `left`                           | Simulates a left arrow key press             |
-| `right`                          | Simulates a right arrow key press            |
-| `a`                              | Simulates an X key press                     |
-| `b`                              | Simulates a Z key press                      |
-| `x`                              | Simulates an S key press                     |
-| `y`                              | Simulates an A key press                     |
-| `start`                          | Simulates an Enter key press                 |
-| `select`                         | Simulates a Shift key press                  |
-| `!hold <key>`                    | Holds the last key pressed                   |
-| `!release` or `!stop`            | Releases the being help                      |
-| `!toggle-fast-forward` or `!tff` | Toggles RetroArch's fast forward mode on/off |
+| Command                                    | Description                                       |
+| ------------------------------------------ | ------------------------------------------------- |
+| `up`                                       | Simulates a up arrow key press                    |
+| `down`                                     | Simulates a down arrow key press                  |
+| `left`                                     | Simulates a left arrow key press                  |
+| `right`                                    | Simulates a right arrow key press                 |
+| `a`                                        | Simulates an X key press                          |
+| `b`                                        | Simulates a Z key press                           |
+| `x`                                        | Simulates an S key press                          |
+| `y`                                        | Simulates an A key press                          |
+| `start`                                    | Simulates an Enter key press                      |
+| `select`                                   | Simulates a Shift key press                       |
+| `!hold <direction>` or `!move <direction>` | Holds the provided directional key until released |
+| `!release` or `!stop`                      | Releases the held directional key                 |
+| `!toggle-fast-forward` or `!tff`           | Toggles RetroArch's fast forward mode on/off      |
 
 ### Broadcaster And Mod Only Commands
 
