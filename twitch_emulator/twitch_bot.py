@@ -68,6 +68,9 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
             }
 
             if command in commands:
+                if self.currentlyHeldKey:
+                    self.handle_stop_command()
+
                 self.execute_command(commands[command], message)
                 logging.info(f"Command executed: {command}")
 
