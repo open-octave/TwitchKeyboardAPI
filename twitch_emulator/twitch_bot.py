@@ -233,6 +233,10 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         Example message: "!hold up"
         """
 
+        def timeout_release():
+            logging.info(f"Timeout reached. Releasing key: {self.currentlyHeldKey}")
+            self.handle_release_command()
+
         try:
             if self.currentlyHeldKey:
                 self.handle_release_command()
@@ -247,7 +251,9 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
                 pydirectinput.keyDown(key)
                 self.currentlyHeldKey = key
 
-                # TODO matt: handle timeout
+                # Set up the timer to automatically release the key after 30 seconds
+                self.timer = Timer(30.0, timeout_release)
+                self.timer.start()
 
                 logging.info(f"Hold command handled: {key}")
             else:
@@ -271,6 +277,10 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
             pydirectinput.keyUp(self.currentlyHeldKey)
             self.currentlyHeldKey = None
             logging.info("Release command handled")
+
+            # Cancel the timer if it is running
+            if hasattr(self, "timer"):
+                self.timer.cancel()
 
         except Exception as e:
             logging.error(f"Error handling release command: {e}")
