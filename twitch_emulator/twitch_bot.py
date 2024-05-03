@@ -5,7 +5,6 @@ import pydirectinput
 
 from twitch_emulator.window_manager import WindowManager
 from threading import Timer
-import uuid
 
 
 class TwitchBot(irc.bot.SingleServerIRCBot):
@@ -28,7 +27,6 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
 
         # Request the "twitch.tv/tags" capability
         connection.cap("REQ", ":twitch.tv/tags")
-
         connection.join(self.channel)
 
     def on_join(self, connection, event):

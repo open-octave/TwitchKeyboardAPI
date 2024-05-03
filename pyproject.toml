@@ -11,6 +11,9 @@ irc = "^20.4.0"
 pyautogui = "^0.9.54"
 pygetwindow = "^0.0.9"
 pydirectinput = "^1.0.4"
+pyfiglet = "^1.0.2"
+colorama = "^0.4.6"
+pyinquirer = "^1.0.3"
 
 
 [build-system]
