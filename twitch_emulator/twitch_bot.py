@@ -63,7 +63,8 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
                 "select": self.handle_select_command,
                 "!hold": self.handle_hold_command,
                 "!stop": self.handle_stop_command,
-                "!fastForwardToggle": self.handle_fast_forward_toggle_command,
+                "!fast-forward-toggle": self.handle_fast_forward_toggle_command,
+                "!fft": self.handle_fast_forward_toggle_command,
             }
 
             if command in commands:
