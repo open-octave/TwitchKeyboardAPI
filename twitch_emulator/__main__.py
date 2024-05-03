@@ -48,9 +48,18 @@ def fix_pyinqurer_dependency():
         exit(1)
 
     # Verify that the file exists
-    poetry_file_path = (
-        ".venv/lib/python3.11/site-packages/prompt_toolkit/styles/from_dict.py"
-    )
+    poetry_file_path = None
+
+    # If on Windows
+    if os.name == "nt":
+        poetry_file_path = (
+            ".venv\\Lib\\site-packages\\prompt_toolkit\\styles\\from_dict.py"
+        )
+    # Otherwise, if on Unix
+    else:
+        poetry_file_path = (
+            ".venv/lib/python3.11/site-packages/prompt_toolkit/styles/from_dict.py"
+        )
 
     if not os.path.exists(poetry_file_path):
         logging.error(
