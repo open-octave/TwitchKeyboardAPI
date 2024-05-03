@@ -62,7 +62,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
                 "start": self.handle_start_command,
                 "select": self.handle_select_command,
                 "!hold": self.handle_hold_command,
-                "!release": self.handle_release_command,
+                "!stop": self.handle_stop_command,
                 "!fastForwardToggle": self.handle_fast_forward_toggle_command,
             }
 
@@ -235,11 +235,11 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
 
         def timeout_release():
             logging.info(f"Timeout reached. Releasing key: {self.currentlyHeldKey}")
-            self.handle_release_command()
+            self.handle_stop_command()
 
         try:
             if self.currentlyHeldKey:
-                self.handle_release_command()
+                self.handle_stop_command()
 
             allowed_keys = ["up", "down", "left", "right"]
             args = message.split()
@@ -262,10 +262,10 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling hold command: {e}")
 
-    def handle_release_command(self, *argv):
+    def handle_stop_command(self, *argv):
         """
         This function will release the key that is currently being held down.
-        Example message: "!release"
+        Example message: "!stop"
         """
 
         try:
