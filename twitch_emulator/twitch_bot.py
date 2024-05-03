@@ -25,6 +25,10 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         This function will handle the bot connecting to the server. It will log the event.
         """
         logging.info(f"Joining channel: {self.channel}")
+
+        # Request the "twitch.tv/tags" capability
+        connection.cap("REQ", ":twitch.tv/tags")
+
         connection.join(self.channel)
 
     def on_join(self, connection, event):
@@ -311,11 +315,21 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         Example message: "!modKillAPI"
         """
         username = irc.strings.lower(event.source.nick)
-        user_role = event.tags[0]["badges"]
+
+        tags = {kv["key"]: kv["value"] for kv in event.tags}
+        user_role = None
+
+        # "moderator" if tags.get("mod") == "1" else "viewer"
+
+        if tags.get("mod") == "1":
+            user_role = "moderator"
+        elif "broadcaster" in tags.get("badges"):
+            user_role = "broadcaster"
+        else:
+            user_role = "viewer"
 
         print(username)
         print(user_role)
-        print(event)
 
         # try:
         #     logging.info(f"Mod kill API command received from: {username}")
