@@ -65,13 +65,14 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
                 "!stop": self.handle_stop_command,
                 "!fast-forward-toggle": self.handle_fast_forward_toggle_command,
                 "!fft": self.handle_fast_forward_toggle_command,
+                "!mod-kill-api": self.handle_mod_kill_api_command,
             }
 
             if command in commands:
                 if self.currentlyHeldKey:
                     self.handle_stop_command()
 
-                self.execute_command(commands[command], message)
+                self.execute_command(event)
                 logging.info(f"Command executed: {command}")
 
         except Exception as e:
@@ -98,7 +99,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error executing command: {e}")
 
-    def handle_up_command(self, *argv):
+    def handle_up_command(self, event):
         """
         This function will handle the up command by pressing the up arrow key.
         Example message: "up"
@@ -111,7 +112,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling up command: {e}")
 
-    def handle_down_command(self, *argv):
+    def handle_down_command(self, event):
         """
         This function will handle the down command by pressing the down arrow key.
         Example message: "down"
@@ -124,7 +125,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling down command: {e}")
 
-    def handle_left_command(self, *argv):
+    def handle_left_command(self, event):
         """
         This function will handle the left command by pressing the left arrow key.
         Example message: "left"
@@ -137,7 +138,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling left command: {e}")
 
-    def handle_right_command(self, *argv):
+    def handle_right_command(self, event):
         """
         This function will handle the right command by pressing the right arrow key.
         Example message: "right"
@@ -150,7 +151,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling right command: {e}")
 
-    def handle_a_command(self, *argv):
+    def handle_a_command(self, event):
         """
         This function will handle the A command by pressing the X key.
         Example message: "a"
@@ -163,7 +164,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling A command: {e}")
 
-    def handle_b_command(self, *argv):
+    def handle_b_command(self, event):
         """
         This function will handle the B command by pressing the Z key.
         Example message: "b"
@@ -176,7 +177,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling B command: {e}")
 
-    def handle_y_command(self, *argv):
+    def handle_y_command(self, event):
         """
         This function will handle the Y command by pressing the A key.
         Example message: "y"
@@ -189,7 +190,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling Y command: {e}")
 
-    def handle_x_command(self, *argv):
+    def handle_x_command(self, event):
         """
         This function will handle the X command by pressing the S key.
         Example message: "x"
@@ -202,7 +203,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling X command: {e}")
 
-    def handle_start_command(self, *argv):
+    def handle_start_command(self, event):
         """
         This function will handle the start command by pressing the enter key.
         Example message: "!start"
@@ -215,7 +216,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling Start command: {e}")
 
-    def handle_select_command(self, *argv):
+    def handle_select_command(self, event):
         """
         This function will handle the select command by pressing the shift key.
         Example message: "!select"
@@ -228,7 +229,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling Select command: {e}")
 
-    def handle_hold_command(self, message):
+    def handle_hold_command(self, event):
         """
         This function will hold a key down until a release command is received or
         the fallback timer of 30 seconds expires. For now this will only allow directional
@@ -246,6 +247,8 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
                 self.handle_stop_command()
 
             allowed_keys = ["up", "down", "left", "right"]
+
+            message = event.arguments[0].strip().lower()
             args = message.split()
             key = args[1] if len(args) > 1 else None
             key = key.lower() if key else None
@@ -266,7 +269,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling hold command: {e}")
 
-    def handle_stop_command(self, *argv):
+    def handle_stop_command(self, event):
         """
         This function will release the key that is currently being held down.
         Example message: "!stop"
@@ -289,7 +292,7 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         except Exception as e:
             logging.error(f"Error handling release command: {e}")
 
-    def handle_fast_forward_toggle_command(self, *argv):
+    def handle_fast_forward_toggle_command(self, event):
         """
         This function will handle the fast forward toggle command by pressing the space key.
         Example message: "!fastForwardToggle"
@@ -301,3 +304,21 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
             logging.info("Fast forward toggle command handled")
         except Exception as e:
             logging.error(f"Error handling fast forward toggle command: {e}")
+
+    def handle_mod_kill_api_command(self, event):
+        """
+        This function will handle the mod kill API command by sending a POST request to the API.
+        Example message: "!modKillAPI"
+        """
+        username = irc.strings.lower(event.source.nick)
+        user_role = event.tags[0]["badges"]
+
+        print(username)
+        print(user_role)
+        print(event)
+
+        # try:
+        #     logging.info(f"Mod kill API command received from: {username}")
+        #     exit()
+        # except Exception as e:
+        #     logging.error(f"Error handling mod kill API command: {e}")
