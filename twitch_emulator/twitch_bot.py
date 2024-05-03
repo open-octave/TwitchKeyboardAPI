@@ -314,14 +314,9 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         This function will handle the mod kill API command by sending a POST request to the API.
         Example message: "!modKillAPI"
         """
+
         username = irc.strings.lower(event.source.nick)
-
         user_role = None
-
-        print("==================")
-        print(event)
-        print("==================")
-        print(event.tags)
 
         if event.tags:
             tags = {kv["key"]: kv["value"] for kv in event.tags}
@@ -335,14 +330,14 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         else:
             user_role = "viewer"
 
-        print("==================")
-        print(username)
-        print("==================")
-        print(user_role)
-        print("==================")
+        try:
+            if user_role != "moderator" and user_role != "broadcaster":
+                logging.error(
+                    f"User {username} does not have permission to kill the API"
+                )
+                return
 
-        # try:
-        #     logging.info(f"Mod kill API command received from: {username}")
-        #     exit()
-        # except Exception as e:
-        #     logging.error(f"Error handling mod kill API command: {e}")
+            logging.info(f"Mod kill API command received from: {username}")
+            exit()
+        except Exception as e:
+            logging.error(f"Error handling mod kill API command: {e}")
