@@ -104,6 +104,13 @@ def start_bot(channel):
         + f"\nStarting client to monitor {channel}'s channel for commands...\n"
     )
 
+    # If the system is not windows, exit the program
+    if os.name != "nt":
+        logging.error(
+            "This application is only supported on Windows. Please run the application on a Windows machine."
+        )
+        exit(1)
+
     from twitch_keyboard_api.twitch_bot import TwitchBot
 
     twitch_bot = TwitchBot(channel)

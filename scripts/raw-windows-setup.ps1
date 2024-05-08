@@ -1,6 +1,6 @@
 # PowerShell script for installation
 
-# Note to run this script, you need to run the following in an elevated PowerShell session: `Set-ExecutionPolicy Unrestricted` 
+# Note to run this script, you need to run the following in an elevated PowerShell session: `Set-ExecutionPolicy Unrestricted`
 
 # Install Git
 Write-Output "`nVerifying installation Git installation..."
