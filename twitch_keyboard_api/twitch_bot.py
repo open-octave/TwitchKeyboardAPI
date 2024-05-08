@@ -16,8 +16,9 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         )
         self.channel = "#" + channel
         self.windowManagerClient = WindowManager()
-
         self.currentlyHeldKey = None
+
+        pydirectinput.FAILSAFE = False
 
     def on_welcome(self, connection, event):
         """
