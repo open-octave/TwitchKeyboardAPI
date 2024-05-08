@@ -163,4 +163,4 @@ cython_debug/
 .idea
 
 # Project Specfic
-database/**/*
+database/**/*.db
