@@ -104,8 +104,6 @@ def start_bot(channel):
         + f"\nStarting client to monitor {channel}'s channel for commands...\n"
     )
 
-    exit(0)
-
     from twitch_keyboard_api.twitch_bot import TwitchBot
 
     twitch_bot = TwitchBot(channel)
