@@ -74,16 +74,10 @@ games [here](https://www.emulatorgames.net/roms/nintendo-ds/).
 git clone git@github.com:open-octave/TwitchKeyboardAPI.git
 ```
 
-2. Install the dependencies
+2. Run the API
 
 ```bash
-poetry install
-```
-
-3. Run the API
-
-```bash
-poetry run python ./twitch_keyboard_api/__main__.py
+./run.bat
 ```
 
 ### Step 3: Using the API
@@ -139,7 +133,7 @@ You can run the API and RetroArch inside of VMWare or VirtualBox. I honestly rec
 
 If you have any questions or need help, please open an issue in the repository or message me on discord:
 
-- Discord: [Project Channel](https://discord.com/channels/1202928165224194058/1233983594515398737)
+Discord: [Project Channel](https://discord.com/channels/1202928165224194058/1233983594515398737)
 
 ### License
 
