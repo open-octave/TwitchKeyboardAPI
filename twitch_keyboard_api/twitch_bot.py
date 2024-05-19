@@ -3,7 +3,7 @@ import logging
 import irc.bot
 import pydirectinput
 
-from twitch_keyboard_api.window_manager import WindowManager
+from window_manager import WindowManager
 from threading import Timer
 
 
