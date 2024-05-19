@@ -111,7 +111,7 @@ def start_bot(channel):
         )
         exit(1)
 
-    from twitch_keyboard_api.twitch_bot import TwitchBot
+    from twitch_bot import TwitchBot
 
     twitch_bot = TwitchBot(channel)
 
