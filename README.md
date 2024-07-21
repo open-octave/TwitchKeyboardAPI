@@ -1,4 +1,4 @@
-# TwitchKeyboardAPI - For Windows
+# TwitchKeyboardAPI - Windows
 
 TwitchKeyboardAPI is an API that will monitor incoming commands from a Twitch chat and send them to a game emulator.
 
