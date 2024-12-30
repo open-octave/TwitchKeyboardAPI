@@ -18,7 +18,7 @@ TwitchKeyboardAPI is an API that will monitor incoming commands from a Twitch ch
     - [General Commands](#general-commands)
     - [Broadcaster And Mod Only Commands](#broadcaster-and-mod-only-commands)
   - [FAQ](#faq)
-    - [How can I still use my computer while the API is running since the window focused on RetroArch for ever command?](#how-can-i-still-use-my-computer-while-the-api-is-running-since-the-window-focused-on-retroarch-for-ever-command)
+    - [How can I still use my computer while the API is running since the program focuses on RetroArch for every command?](#how-can-i-still-use-my-computer-while-the-api-is-running-since-the-program-focuses-on-retroarch-for-every-command)
   - [Development](#development)
     - [Support](#support)
     - [License](#license)
@@ -121,7 +121,7 @@ _**Note:** The command mapping is designed based on the default key bindings of 
 
 ## FAQ
 
-### How can I still use my computer while the API is running since the window focused on RetroArch for ever command?
+### How can I still use my computer while the API is running since the program focuses on RetroArch for every command?
 
 You can run the API and RetroArch inside of VMWare or VirtualBox. I honestly recommend this method since it also gives the streamer an extra layer of security since the API does not have access to the files, folders, or applications on the streamer's computer. This should never be possible due to a few security measures in place but it is always better to be safe than sorry.
 
