@@ -34,7 +34,7 @@ If you already have a development environment set up, you can skip this step. Bu
 - Git
 - GitHub CLI
 
-_**Note:** You wll run the script about 3 times total if you do not have any of the dependencies installed. This is because the terminal needs to be restarted after installing some of the dependencies._
+_**Note:** You will run the script about 3 times total if you do not have any of the dependencies installed. This is because the terminal needs to be restarted after installing some of the dependencies._
 
 ### Prerequisites
 
